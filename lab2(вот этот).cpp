@@ -57,7 +57,7 @@ public:
         for (int i = 0; i < size; ++i) {
             std::vector<MazeElement*> row;
             for (int j = 0; j < size; ++j) {
-                int randValue = distrib(gen);  // 0: Wall, 1: Treasure, 2: EmptySpace
+                int randValue = distrib(gen);  // 0: Стена, 1: Сокровище, 2: Пустое место
                 switch (randValue) {
                     case 0:
                         row.push_back(new Wall());
@@ -83,7 +83,7 @@ public:
     }
 
     ~Maze() {
-        // Очистка выделенной динамической памяти
+        // Очистка выделенной памяти
         for (auto& row : maze) {
             for (auto& element : row) {
                 delete element;
@@ -134,7 +134,7 @@ public:
                 }
             }
         }
-        return -1;  // Игрок не найден (вряд ли произойдет)
+        return -1;  // Игрок не найден
     }
 
     MazeElement* getElement(int x, int y) const {
